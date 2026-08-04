@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Checkout | FoodieHub AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-light pt-5">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="premium-card p-5 shadow-lg">
+                    <h2 class="fw-bold mb-4 text-center">Complete Your Order</h2>
+                    <form id="checkout-form">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Delivery Address</label>
+                            <textarea class="form-control rounded-4" rows="3" name="address" placeholder="Enter your full address..." required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Payment Method</label>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="radio" class="btn-check" name="payment" id="pay-cod" value="COD" checked>
+                                    <label class="btn btn-outline-dark w-100 py-3 rounded-4" for="pay-cod">
+                                        <i class="fas fa-money-bill-wave d-block mb-2"></i> Cash on Delivery
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="radio" class="btn-check" name="payment" id="pay-card" value="Card">
+                                    <label class="btn btn-outline-dark w-100 py-3 rounded-4" for="pay-card">
+                                        <i class="fas fa-credit-card d-block mb-2"></i> Credit / Debit Card
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-5">
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-3 fw-bold">Place Order Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="/static/js/main.js" type="module"></script>
+</body>
+</html>

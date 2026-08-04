@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieHub AI | Premium Food Delivery</title>
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Order food from favorite restaurants with FoodieHub AI. Fast delivery and premium experience.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg glass fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-robot me-2"></i>FoodieHub AI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="/restaurants">Restaurants</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/orders">Orders</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 position-relative" href="/cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display:none">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-3" id="auth-links">
+                        <!-- Auth buttons injected by JS -->
+                        <a href="/login" class="btn btn-outline-primary rounded-pill px-4 me-2">Login</a>
+                        <a href="/register" class="btn btn-primary rounded-pill px-4">Sign Up</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <button id="theme-toggle" class="btn btn-link text-dark p-0"><i class="fas fa-moon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-3 fw-bold mb-4">Delicious Food, <span class="text-primary-color">AI Recommended</span></h1>
+                    <p class="lead text-muted mb-5">Experience the future of food delivery. Powered by AI to suggest the best meals just for you.</p>
+                    <div class="d-flex gap-3">
+                        <a href="/restaurants" class="btn btn-primary btn-lg px-5 rounded-pill">Order Now</a>
+                        <a href="#featured" class="btn btn-outline-dark btn-lg px-5 rounded-pill">Explore</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800" alt="Food Banner" class="img-fluid rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Container -->
+    <div class="container">
+        <div class="search-container" data-aos="fade-up">
+            <div class="position-relative">
+                <input type="text" id="search-input" class="search-input" placeholder="Search for restaurants or dishes...">
+                <button class="btn btn-primary rounded-circle position-absolute end-0 top-0 mt-1 me-1" style="height:48px; width:48px;">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div id="search-suggestions" class="list-group mt-2 glass shadow-lg border-0 rounded-4" style="display:none">
+                <!-- Suggestions injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <section class="py-5 mt-5">
+        <div class="container">
+            <h2 class="fw-bold mb-4" data-aos="fade-right">Top Categories</h2>
+            <div class="row g-4" id="categories-container">
+                <!-- Skeletons -->
+                <div class="col-6 col-md-2"><div class="skeleton" style="height:120px; border-radius: 20px;"></div></div>
+                <div class="col-6 col-md-2"><div class="skeleton" style="height:120px; border-radius: 20px;"></div></div>
+                <div class="col-6 col-md-2"><div class="skeleton" style="height:120px; border-radius: 20px;"></div></div>
+                <div class="col-6 col-md-2"><div class="skeleton" style="height:120px; border-radius: 20px;"></div></div>
+                <div class="col-6 col-md-2"><div class="skeleton" style="height:120px; border-radius: 20px;"></div></div>
+                <div class="col-6 col-md-2"><div class="skeleton" style="height:120px; border-radius: 20px;"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Recommendations (Mock) -->
+    <section class="py-5 bg-secondary-color">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h2 class="fw-bold m-0"><i class="fas fa-magic text-primary-color me-2"></i>AI Recommendations</h2>
+                <span class="badge bg-primary rounded-pill px-3">Based on Popularity</span>
+            </div>
+            <div class="row g-4" id="ai-recommendations">
+                <!-- Recommendations dynamicly loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Restaurants -->
+    <section id="featured" class="py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-4">Featured Restaurants</h2>
+            <div class="row g-4" id="featured-restaurants">
+                <!-- Cards dynamicly loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark text-white mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-primary-color mb-4">FoodieHub AI</h5>
+                    <p class="text-muted">The ultimate food delivery experience with cutting-edge AI technology.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="/" class="text-reset text-decoration-none">Home</a></li>
+                        <li><a href="/restaurants" class="text-reset text-decoration-none">Restaurants</a></li>
+                        <li><a href="/cart" class="text-reset text-decoration-none">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-4">Support</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="#" class="text-reset text-decoration-none">Help Center</a></li>
+                        <li><a href="#" class="text-reset text-decoration-none">Feedback</a></li>
+                        <li><a href="#" class="text-reset text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-4">Subscribe</h6>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Email">
+                        <button class="btn btn-primary">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 opacity-25">
+            <p class="text-center text-muted mb-0">&copy; 2026 FoodieHub AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+    <script src="/static/js/main.js" type="module"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>
