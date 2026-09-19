@@ -66,4 +66,5 @@ The app will be available at `http://127.0.0.1:5000`.
 - **Aesthetic**: Minimalist yet premium, utilizing soft shadows and glass-like surfaces to create depth.
 
 ---
-Built with ❤️ for Technical Portfolios.
+A link to demo video of the project from my linked in
+https://www.linkedin.com/posts/rehana-fathima-m_built-a-full-stack-food-delivery-order-activity-7487234893521838081-6Fe3?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFNzIbgB5j7Q48ts3qHq5HHMUIvOmpMq3Hk
